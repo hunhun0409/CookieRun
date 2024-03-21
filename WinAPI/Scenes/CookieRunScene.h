@@ -26,4 +26,5 @@ private:
 
     Vector2 oldStagePos;
 
+    float gitTest;
 };
