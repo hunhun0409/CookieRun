@@ -82,22 +82,6 @@ using namespace GameMath;
 #include "Objects/Manager/Observer.h"
 #include "Objects/Manager/DataManager.h"
 
-//#include "Objects/Inventory/Item.h"
-//#include "Objects/Inventory/Panel.h"
-//#include "Objects/Inventory/Inventory.h"
-//#include "Objects/Inventory/Store.h"
-
-
-
-#include "Objects/Character/Character.h"
-#include "Objects/Character/BattleCharacter.h"
-#include "Objects/Character/PixelCharacter.h"
-#include "Objects/Character/Megaman.h"
-#include "Objects/Character/Fighter.h"
-#include "Objects/Character/Monster.h"
-#include "Objects/Character/Siva.h"
-
-
 #include "Objects/CookieRun/Ground.h"
 
 #include "Objects/CookieRun/Item/Item.h"
@@ -128,8 +112,6 @@ using namespace GameMath;
 #include "Objects/CookieRun/Manager/ScoreManager.h"
 #include "Objects/CookieRun/Manager/BonusTimeManager.h"
 
-#include "Objects/Dig/Bomb.h"
-#include "Objects/Dig/BombManager.h"
 
 //Scene Header
 #include "Scenes/Scene.h"
