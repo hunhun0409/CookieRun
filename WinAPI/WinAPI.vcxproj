@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f04ac82a-7a71-432b-ade7-2439df1160a8}</ProjectGuid>
+    <RootNamespace>WinAPI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Framework.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework.h" />
+    <ClInclude Include="Framework\Math\GameMath.h" />
+    <ClInclude Include="Framework\Math\Vector2.h" />
+    <ClInclude Include="Framework\Render\Animation.h" />
+    <ClInclude Include="Framework\Render\Camera.h" />
+    <ClInclude Include="Framework\Render\Texture.h" />
+    <ClInclude Include="Framework\Utilities\Audio.h" />
+    <ClInclude Include="Framework\Utilities\Keyboard.h" />
+    <ClInclude Include="Framework\Utilities\Singleton.h" />
+    <ClInclude Include="Framework\Utilities\Timer.h" />
+    <ClInclude Include="Framework\Utilities\Utility.h" />
+    <ClInclude Include="Manager\GameManager.h" />
+    <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Objects\Basic\Circle.h" />
+    <ClInclude Include="Objects\Basic\Effect.h" />
+    <ClInclude Include="Objects\Basic\GameObject.h" />
+    <ClInclude Include="Objects\Basic\ImageRect.h" />
+    <ClInclude Include="Objects\Basic\Line.h" />
+    <ClInclude Include="Objects\Basic\Rect.h" />
+    <ClInclude Include="Objects\Character\BattleCharacter.h" />
+    <ClInclude Include="Objects\Character\Character.h" />
+    <ClInclude Include="Objects\Character\Fighter.h" />
+    <ClInclude Include="Objects\Character\Megaman.h" />
+    <ClInclude Include="Objects\Character\Monster.h" />
+    <ClInclude Include="Objects\Character\PixelCharacter.h" />
+    <ClInclude Include="Objects\Character\Siva.h" />
+    <ClInclude Include="Objects\CookieRun\Ground.h" />
+    <ClInclude Include="Objects\CookieRun\HUD\Digit.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Coin.h" />
+    <ClInclude Include="Objects\CookieRun\Character\CookieCharacter.h" />
+    <ClInclude Include="Objects\CookieRun\Item\BonusJelly.h" />
+    <ClInclude Include="Objects\CookieRun\Manager\BonusTimeManager.h" />
+    <ClInclude Include="Objects\CookieRun\Manager\StageManager.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Energy.h" />
+    <ClInclude Include="Objects\CookieRun\Character\HeroCookie.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Giant.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Invincible.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Item.h" />
+    <ClInclude Include="Objects\CookieRun\Character\KumihoCookie.h" />
+    <ClInclude Include="Objects\CookieRun\Item\JellyBean.h" />
+    <ClInclude Include="Objects\CookieRun\Item\Magnet.h" />
+    <ClInclude Include="Objects\CookieRun\Manager\ScoreManager.h" />
+    <ClInclude Include="Objects\CookieRun\Obstacle\Fist.h" />
+    <ClInclude Include="Objects\CookieRun\Obstacle\Obstacle.h" />
+    <ClInclude Include="Objects\CookieRun\Pet\Missile.h" />
+    <ClInclude Include="Objects\CookieRun\Manager\MissileManager.h" />
+    <ClInclude Include="Objects\CookieRun\Pet\Pet.h" />
+    <ClInclude Include="Objects\Dig\Bomb.h" />
+    <ClInclude Include="Objects\Dig\BombManager.h" />
+    <ClInclude Include="Objects\Manager\DataManager.h" />
+    <ClInclude Include="Objects\Manager\EffectManager.h" />
+    <ClInclude Include="Objects\Manager\Observer.h" />
+    <ClInclude Include="Objects\Manager\PoolingManager.h" />
+    <ClInclude Include="Objects\UI\Button.h" />
+    <ClInclude Include="Objects\UI\ProgressBar.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scenes\BattleScene.h" />
+    <ClInclude Include="Scenes\ButtonScene.h" />
+    <ClInclude Include="Scenes\CollisionScene.h" />
+    <ClInclude Include="Scenes\CookieRunScene.h" />
+    <ClInclude Include="Scenes\DigGameScene.h" />
+    <ClInclude Include="Scenes\LoadingScene.h" />
+    <ClInclude Include="Scenes\LobbyScene.h" />
+    <ClInclude Include="Scenes\PixelCollisionScene.h" />
+    <ClInclude Include="Scenes\ResultScene.h" />
+    <ClInclude Include="Scenes\Scene.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="WinAPI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Framework.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Framework\Math\GameMath.cpp" />
+    <ClCompile Include="Framework\Render\Animation.cpp" />
+    <ClCompile Include="Framework\Render\Camera.cpp" />
+    <ClCompile Include="Framework\Render\Texture.cpp" />
+    <ClCompile Include="Framework\Utilities\Audio.cpp" />
+    <ClCompile Include="Framework\Utilities\Keyboard.cpp" />
+    <ClCompile Include="Framework\Utilities\Timer.cpp" />
+    <ClCompile Include="Framework\Utilities\Utility.cpp" />
+    <ClCompile Include="Manager\GameManager.cpp" />
+    <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Objects\Basic\Circle.cpp" />
+    <ClCompile Include="Objects\Basic\Effect.cpp" />
+    <ClCompile Include="Objects\Basic\GameObject.cpp" />
+    <ClCompile Include="Objects\Basic\ImageRect.cpp" />
+    <ClCompile Include="Objects\Basic\Line.cpp" />
+    <ClCompile Include="Objects\Basic\Rect.cpp" />
+    <ClCompile Include="Objects\Character\BattleCharacter.cpp" />
+    <ClCompile Include="Objects\Character\Character.cpp" />
+    <ClCompile Include="Objects\Character\Fighter.cpp" />
+    <ClCompile Include="Objects\Character\Megaman.cpp" />
+    <ClCompile Include="Objects\Character\Monster.cpp" />
+    <ClCompile Include="Objects\Character\PixelCharacter.cpp" />
+    <ClCompile Include="Objects\Character\Siva.cpp" />
+    <ClCompile Include="Objects\CookieRun\Ground.cpp" />
+    <ClCompile Include="Objects\CookieRun\HUD\Digit.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\BonusJelly.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Coin.cpp" />
+    <ClCompile Include="Objects\CookieRun\Character\CookieCharacter.cpp" />
+    <ClCompile Include="Objects\CookieRun\Manager\BonusTimeManager.cpp" />
+    <ClCompile Include="Objects\CookieRun\Manager\StageManager.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Energy.cpp" />
+    <ClCompile Include="Objects\CookieRun\Character\HeroCookie.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Giant.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Invincible.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Item.cpp" />
+    <ClCompile Include="Objects\CookieRun\Character\KumihoCookie.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\JellyBean.cpp" />
+    <ClCompile Include="Objects\CookieRun\Item\Magnet.cpp" />
+    <ClCompile Include="Objects\CookieRun\Manager\ScoreManager.cpp" />
+    <ClCompile Include="Objects\CookieRun\Obstacle\Fist.cpp" />
+    <ClCompile Include="Objects\CookieRun\Obstacle\Obstacle.cpp" />
+    <ClCompile Include="Objects\CookieRun\Pet\Missile.cpp" />
+    <ClCompile Include="Objects\CookieRun\Manager\MissileManager.cpp" />
+    <ClCompile Include="Objects\CookieRun\Pet\Pet.cpp" />
+    <ClCompile Include="Objects\Dig\Bomb.cpp" />
+    <ClCompile Include="Objects\Dig\BombManager.cpp" />
+    <ClCompile Include="Objects\Manager\DataManager.cpp" />
+    <ClCompile Include="Objects\Manager\EffectManager.cpp" />
+    <ClCompile Include="Objects\Manager\Observer.cpp" />
+    <ClCompile Include="Objects\Manager\PoolingManager.cpp" />
+    <ClCompile Include="Objects\UI\Button.cpp" />
+    <ClCompile Include="Objects\UI\ProgressBar.cpp" />
+    <ClCompile Include="Scenes\BattleScene.cpp" />
+    <ClCompile Include="Scenes\ButtonScene.cpp" />
+    <ClCompile Include="Scenes\CollisionScene.cpp" />
+    <ClCompile Include="Scenes\CookieRunScene.cpp" />
+    <ClCompile Include="Scenes\DigGameScene.cpp" />
+    <ClCompile Include="Scenes\LoadingScene.cpp" />
+    <ClCompile Include="Scenes\LobbyScene.cpp" />
+    <ClCompile Include="Scenes\PixelCollisionScene.cpp" />
+    <ClCompile Include="WinAPI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinAPI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="WinAPI.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
