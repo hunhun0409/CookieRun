@@ -88,6 +88,16 @@ using namespace GameMath;
 //#include "Objects/Inventory/Store.h"
 
 
+
+#include "Objects/Character/Character.h"
+#include "Objects/Character/BattleCharacter.h"
+#include "Objects/Character/PixelCharacter.h"
+#include "Objects/Character/Megaman.h"
+#include "Objects/Character/Fighter.h"
+#include "Objects/Character/Monster.h"
+#include "Objects/Character/Siva.h"
+
+
 #include "Objects/CookieRun/Ground.h"
 
 #include "Objects/CookieRun/Item/Item.h"
@@ -108,7 +118,6 @@ using namespace GameMath;
 #include "Objects/CookieRun/Character/KumihoCookie.h"
 #include "Objects/CookieRun/Character/HeroCookie.h"
 
-#include "Objects/CookieRun/Pet/Pet.h"
 #include "Objects/CookieRun/Pet/Missile.h"
 
 #include "Objects/CookieRun/HUD/Digit.h"
@@ -117,6 +126,9 @@ using namespace GameMath;
 #include "Objects/CookieRun/Manager/StageManager.h"
 #include "Objects/CookieRun/Manager/ScoreManager.h"
 #include "Objects/CookieRun/Manager/BonusTimeManager.h"
+
+#include "Objects/Dig/Bomb.h"
+#include "Objects/Dig/BombManager.h"
 
 //Scene Header
 #include "Scenes/Scene.h"
