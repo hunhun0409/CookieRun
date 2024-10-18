@@ -60,28 +60,7 @@ void Animation::Update()
                 Stop();
             }
         }
-    }/*
-    if (!isPlay) return;
-
-    playTime += speed * DELTA;
-
-    if (playTime >= intervalTime)
-    {
-        playTime -= intervalTime;
-
-        curFrameNum++;
-
-        if (curFrameNum > action.size() - 1)
-        {
-            if (isLoop)
-                curFrameNum = 0;
-            else
-            {
-                curFrameNum--;
-                Stop();
-            }
-        }
-    }*/
+    }
 }
 
 void Animation::SetDefault(bool loop, bool pingpong)

@@ -12,9 +12,6 @@ private:
 
     Camera();
     ~Camera();
-
-    
-
 public:
     void Update();
 
@@ -43,7 +40,7 @@ private:
     void Shake();
 private:
     Rect* rect;
-    float moveSpeed = 2000.0f;
+    float moveSpeed = 200.0f;
     float followSpeed = 20.0f;
 
     GameObject* target = nullptr;

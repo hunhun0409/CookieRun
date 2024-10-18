@@ -130,8 +130,6 @@ void StageManager::Render(HDC hdc)
         background->CamRender(hdc);
     }
 
-    //changeImage->Render(hdc);
-
 
     vector<GameObject*> grounds = totalObjects[curKey + "_Ground"];
 
@@ -261,19 +259,16 @@ bool StageManager::CollisionObstacle(GameObject* object)
 void StageManager::AddMapData(string key, string file)
 {
     ifstream loadFile(file);
-
     string temp;
     MapData temp_map;
 
     UINT width;
     UINT height = 0;
-
     while (true)
     {
         loadFile >> temp;
 
         vector<string> datas = SplitString(temp, ",");
-
         width = datas.size();
 
         vector<TileType> rowDatas;
@@ -283,7 +278,6 @@ void StageManager::AddMapData(string key, string file)
         {
             rowDatas.push_back((TileType)stoi(data));
         }
-
         temp_map.push_back(rowDatas);
         height++;
 
@@ -293,6 +287,7 @@ void StageManager::AddMapData(string key, string file)
 
     if(mapSizeDatas.count(key) == 0)
         mapSizeDatas[key] = Point(width, height);
+
     if (mapTileSizeDatas.count(key) == 0)
     {
         Vector2 tileSize = { WIN_WIDTH / (float)width, WIN_HEIGHT / (float)height };
@@ -300,8 +295,6 @@ void StageManager::AddMapData(string key, string file)
     }
     mapDatas[key].push_back(temp_map);
 }
-
-
 
 void StageManager::LoadTileData(string key)
 {

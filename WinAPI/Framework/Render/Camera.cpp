@@ -89,16 +89,11 @@ void Camera::FreeMove()
 
 void Camera::FollowMode()
 {
-    //destPos = target->pos - rect->Half() - offset;
     destPos = {target->pos.x - rect->Half().x - offset.x, rect->pos.y};
-
 
     FixPos(destPos);
 
-    //rect->pos = destPos;
     rect->pos = Lerp(rect->pos, destPos, followSpeed * DELTA);
-    
-    
 }
 
 void Camera::FixPos(Vector2& pos)

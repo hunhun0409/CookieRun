@@ -65,9 +65,6 @@ private:
 
 private:
     void CreateTile(string key);
-
-    
-
 private:
     
     map<string, Point> mapSizeDatas;

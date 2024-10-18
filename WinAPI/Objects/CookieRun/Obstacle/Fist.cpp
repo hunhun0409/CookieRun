@@ -77,5 +77,4 @@ void Fist::CreateAnimation()
 
     animations[UPEND] = new Animation(texture->GetFrame(), 1.0f);
     animations[UPEND]->SetPart(7, 7);
-    
 }

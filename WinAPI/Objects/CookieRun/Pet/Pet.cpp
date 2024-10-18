@@ -69,13 +69,7 @@ void Pet::Render(HDC hdc)
 		magnetRect->LineRender(hdc);
 
 	}
-	
-
 	imageRects[curState]->Render(hdc, animations[curState]->GetFrame());
-
-
-	//MissileManager::Get()->Render(hdc);
-
 }
 
 void Pet::CamRender(HDC hdc)
@@ -180,21 +174,6 @@ void Pet::CreateAnimation()
 	animations[SKILL]->SetDefault();
 	animations[SKILL]->SetNotifyEvent(bind(&Pet::OnNotifyBegin, this, placeholders::_1), 17, "SpawnMissile");
 	animations[SKILL]->SetEndEvent(bind(&Pet::SkillEnd, this));
-	
-	
-
-
-	//animations[RUN] = new Animation(texture->GetFrame(), 1.2f);
-	//animations[RUN]->SetPart(13, 16, true);
-
-	//animations[JUMP1] = new Animation(texture->GetFrame(), 1.2f);
-	//animations[JUMP1]->SetPart(7, 8, true);
-
-	//animations[JUMP2_START] = new Animation(texture->GetFrame(), 1.2f);
-	////animations[JUMP2_START]->SetPart(0, 4);
-	//int arr[] = { 0, 1, 2, 3, 1, 2, 3, 4 };
-	//animations[JUMP2_START]->SetArray(arr, 8);
-	//animations[JUMP2_START]->SetEndEvent(bind(&HeroCookie::JumpLoop, this));
 }
 
 

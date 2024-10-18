@@ -13,10 +13,6 @@ CookieRunScene::CookieRunScene()
     StageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_5.csv");
     StageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_6.csv");
     StageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_7.csv");
-    //CookieRunStageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_1.csv");
-    //CookieRunStageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_2.csv");
-    //CookieRunStageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_1.csv");
-    //CookieRunStageManager::Get()->AddMapData("Stage1", "TextData/CookieRun/cookieStage1_2.csv");
 
     Texture* bg1 = Texture::Add(L"Textures/CookieRun/CookieBG.bmp");
 
@@ -37,8 +33,6 @@ CookieRunScene::CookieRunScene()
     ImageRect* background2 = new ImageRect(bg2);
     StageManager::Get()->AddBackground("BonusTime", 0, background2);
 
-    //Observer::Get()->AddParamEvent("SivaDamage", bind(&Siva::Damage, this, placeholders::_1));
-    
     Observer::Get()->AddParamEvent("SetCookie", bind(&CookieRunScene::SetCookie, this, placeholders::_1));
 }
 
@@ -53,20 +47,18 @@ CookieRunScene::~CookieRunScene()
 void CookieRunScene::Update()
 {
     cookie->Update();
-    pet->Update();
-
-    StageManager::Get()->Update();
-       
-    StageManager::Get()->CollisionItem(cookie, cookie->tag);
-
     if (!pet->isFollow)
     {
         StageManager::Get()->CollisionItem(pet, pet->tag);
         StageManager::Get()->CollisionItem(pet->GetMagnetRect(), pet->GetMagnetRect()->tag);
     }
+    pet->Update();
 
+    StageManager::Get()->CollisionItem(cookie, cookie->tag);
     StageManager::Get()->CollisionObstacle(cookie);
+    StageManager::Get()->Update();
 
+    Camera::Get()->Update();
     ScoreManager::Get()->Update();
     BonusTimeManager::Get()->Update();
 }
@@ -83,10 +75,9 @@ void CookieRunScene::Render(HDC hdc)
 
 void CookieRunScene::Start()
 {
-    //hero = new HeroCookie();
     cookie->pos = { CENTER_X, CENTER_Y + 100 };
-
-
+    
+    
     pet = new Pet(L"Textures/CookieRun/Pets/Jellyco.bmp", 4, 1, MAGENTA,
         L"Textures/CookieRun/Pets/JellycoSkill.bmp", 19, 1, MAGENTA);
     pet->SetOwner(cookie);
@@ -103,7 +94,6 @@ void CookieRunScene::Start()
 
     ScoreManager::Get();
     BonusTimeManager::Get();
-    //Camera::Get()->SetPos(kumiho->pos);
 
     Audio::Get()->Play("HeroBGM");
 

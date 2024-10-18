@@ -1,19 +1,8 @@
 #include "Framework.h"
 
-//#include "Scenes/TutorialScene.h"
-//#include "Scenes/SpawnScene.h"
-#include "Scenes/CollisionScene.h"
-#include "Scenes/BattleScene.h"
-#include "Scenes/PixelCollisionScene.h"
-#include "Scenes/DigGameScene.h"
-#include "Scenes/ButtonScene.h"
-//#include "Scenes/InventoryScene.h"
-
 #include "Scenes/CookieRunScene.h"
 #include "Scenes/LobbyScene.h"
 #include "Scenes/LoadingScene.h"
-
-
 
 GameManager* GameManager::instance = nullptr;
 
@@ -22,14 +11,6 @@ GameManager::GameManager()
     Init();
 
     //Timer::Get()->SetLockFPS(1000);
-    // 
-    //SceneManager::Get()->Add("Battle", new BattleScene());
-    //SceneManager::Get()->Add("Dig", new DigGameScene());
-    //SceneManager::Get()->Add("Start", new ButtonScene());
-    //SceneManager::Get()->Add("Start", new CollisionScene());
-    //SceneManager::Get()->Add("Start", new ButtonScene());
-    //SceneManager::Get()->Add("Start", new InventoryScene());
-    
     SceneManager::Get()->Add("Lobby", new LobbyScene());
     SceneManager::Get()->Add("Loading", new LoadingScene());
     SceneManager::Get()->Add("CookieRun", new CookieRunScene());

@@ -41,8 +41,6 @@ void Missile::Update()
 	imageRect->pos = pos;
 	animation->Update();
 	
-	
-
 	Explode();
 }
 

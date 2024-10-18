@@ -17,8 +17,8 @@ CookieCharacter::CookieCharacter(wstring file, int frameX, int frameY, COLORREF 
     tag = "Cookie";
 
     Observer::Get()->AddEvent("CookieCrash", bind(&CookieCharacter::Crash, this));
-    Observer::Get()->AddEvent("CookieGrow", bind(&CookieCharacter::StartGrow, this));
-    Observer::Get()->AddEvent("CookieDash", bind(&CookieCharacter::StartDash, this));
+    Observer::Get()->AddEvent("CookieGrow", bind(&CookieCharacter::GiantStart, this));
+    Observer::Get()->AddEvent("CookieDash", bind(&CookieCharacter::DashStart, this));
     Observer::Get()->AddEvent("BonusTimeStart", bind(&CookieCharacter::BonustimeStart, this));
     Observer::Get()->AddEvent("BonusTimeEnd", bind(&CookieCharacter::BonustimeEnd, this));
 
@@ -44,8 +44,8 @@ CookieCharacter::CookieCharacter(Texture* texture)
     tag = "Cookie";
 
     Observer::Get()->AddEvent("CookieCrash", bind(&CookieCharacter::Crash, this));
-    Observer::Get()->AddEvent("CookieGrow", bind(&CookieCharacter::StartGrow, this));
-    Observer::Get()->AddEvent("CookieDash", bind(&CookieCharacter::StartDash, this));
+    Observer::Get()->AddEvent("CookieGrow", bind(&CookieCharacter::GiantStart, this));
+    Observer::Get()->AddEvent("CookieDash", bind(&CookieCharacter::DashStart, this));
 
     Audio::Get()->Add("giant_jump", "Sounds/CookieRun/Cookie/HeroCookie/giant_jump.wav");
     Audio::Get()->Add("giant_land", "Sounds/CookieRun/Cookie/HeroCookie/giant_land.wav");
@@ -76,18 +76,17 @@ void CookieCharacter::Update()
             isGhost = false;
         }
     }
-
     if (isGiant)
     {
-        Grow();
+        GiantLoop();
     }
     if (isShrink)
     {
-        Shrink();
+        GiantEnd();
     }
     if (isDash)
     {
-        Dashing();
+        DashLoop();
     }
     if (isMoveTo)
     {
@@ -99,7 +98,6 @@ void CookieCharacter::Update()
         Gravity();
         Move();
     }
-    
     if (!BonusTimeManager::Get()->isBonusTime)
     {
         curHP -= 2 * DELTA;
@@ -125,9 +123,7 @@ void CookieCharacter::Render(HDC hdc)
 
     imageRect->CamRender(hdc, animations[curState]->GetFrame());
 
-
     hpBar->Render(hdc);
-
 }
 
 void CookieCharacter::Render(HDC hdc, int alpha)
@@ -142,11 +138,6 @@ void CookieCharacter::Render(HDC hdc, int alpha)
 
     imageRect->CamRender(hdc, alpha, animations[curState]->GetFrame());
     hpBar->Render(hdc);
-
-    //if (alpha < 255)
-    //    imageRect->CamRender(hdc, alpha, animations[curState]->GetFrame());
-    //else
-    //    imageRect->CamRender(hdc, animations[curState]->GetFrame());
 }
 
 void CookieCharacter::MoveTo()
@@ -379,7 +370,7 @@ void CookieCharacter::Dead()
     SetAction(DEAD);
 }
 
-void CookieCharacter::StartGrow()
+void CookieCharacter::GiantStart()
 {
     if (IsDead()) return;
     isInvincible = true;
@@ -388,16 +379,11 @@ void CookieCharacter::StartGrow()
     giantTime = GIANT_TIME;
 }
 
-void CookieCharacter::Grow()
+void CookieCharacter::GiantLoop()
 {
     giantTime -= DELTA;
     pSize += DELTA;
     pSize = Clamp(0.0f, 1.0f, pSize);
-
-    /*float y = crouchSize.y - size.y;
-    size.y += y;
-    pos.y -= y * 0.5f;
-    imageOffset.y += y * 0.5f;*/
 
     if (curState == SLIDE)
     {
@@ -422,7 +408,7 @@ void CookieCharacter::Grow()
     }
 }
 
-void CookieCharacter::Shrink()
+void CookieCharacter::GiantEnd()
 {
     pSize -= DELTA;
     pSize = Clamp(0.0f, 1.0f, pSize);
@@ -451,7 +437,7 @@ void CookieCharacter::Shrink()
     }
 }
 
-void CookieCharacter::StartDash()
+void CookieCharacter::DashStart()
 {
     isInvincible = true;
     isDash = true;
@@ -459,20 +445,19 @@ void CookieCharacter::StartDash()
     velocity.x = DASH_SPEED;
     if(!isSkill && curState != SKILL_END)
         SetAction(DASH);
-    
 }
 
-void CookieCharacter::Dashing()
+void CookieCharacter::DashLoop()
 {
     dashTime -= DELTA;
     if (dashTime <= 0)
     {
         dashTime = DASH_TIME;
-        EndDash();
+        DashEnd();
     }
 }
 
-void CookieCharacter::EndDash()
+void CookieCharacter::DashEnd()
 {
     if (!isSkill)
     {
@@ -539,8 +524,3 @@ void CookieCharacter::SetHealth(float changeAmount)
     curHP += changeAmount;
     curHP = Clamp(0, maxHP, curHP);
 }
-
-void CookieCharacter::ActivateMagnet()
-{
-}
-

@@ -58,20 +58,18 @@ protected:
 	virtual void Exhaust();
 	virtual void Dead();
 
-	void StartGrow();
-	void Grow();
-	void Shrink();
+	void GiantStart();
+	void GiantLoop();
+	void GiantEnd();
 
-	void StartDash();
-	void Dashing();
-	void EndDash();
+	void DashStart();
+	void DashLoop();
+	void DashEnd();
 
 	void BonustimeStart();
 	void BonustimeLoop();
 	void BonustimeEnd();
-public:
-	bool IsInvincible() const { return isInvincible; }
-	bool IsDead() { return curState == EXHAUST || curState == DEAD; }
+
 protected:
 	float GetHeight(const Vector2& pos);
 	
@@ -81,12 +79,12 @@ protected:
 	void SetMoveTo(float dest);
 
 public:
+	bool IsInvincible() const { return isInvincible; }
+	bool IsDead() { return curState == EXHAUST || curState == DEAD; }
 	void SetHealth(float changeAmount);
-	void ActivateMagnet();
 
 public:
 	bool isFly = false;
-
 private:
 	bool DebugMode = true;
 protected:
@@ -109,9 +107,6 @@ protected:
 
 	bool isGhost = false;
 	float ghostTime = 0.0f;
-
-	/*float alphaValue = 255;
-	bool isIncreaseAlpha = false;*/
 
 	bool isInvincible = false;
 

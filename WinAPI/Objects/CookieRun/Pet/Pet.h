@@ -31,7 +31,6 @@ public:
 	void MagnetOff();
 
 	void Skill();
-	void Spawn();
 	void SkillEnd();
 
 	Rect* GetMagnetRect() { return magnetRect; }
