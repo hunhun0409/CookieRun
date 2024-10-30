@@ -414,9 +414,6 @@ void StageManager::ChangeScene(string key)
 
 void StageManager::CreateTile(string key)
 {
-    //typedef vector<vector<TileType>> MapData;
-    //map<string, vector<MapData*>> mapDatas;
-
     vector<MapData> temp = mapDatas[key];
     int mapNum = temp.size();
 
@@ -430,13 +427,6 @@ void StageManager::CreateTile(string key)
     vector<GameObject*> items;
     vector<GameObject*> obstacles;
 
-
-
-    //grounds.reserve(width * mapNum);
-    //items.reserve(width * mapNum);
-    //obstacles.reserve(width * mapNum);
-
-
     for (UINT i = 0; i < mapNum; i++)
     {
         for (UINT y = 0; y < height; y++)
@@ -447,7 +437,6 @@ void StageManager::CreateTile(string key)
                 int data = temp[i][y][x];
                 TileType type = (TileType)(data / 100);
                 int key = data % 100;
-
 
                 switch (type)
                 {
@@ -478,14 +467,9 @@ void StageManager::CreateTile(string key)
                     break;
                 }
                 break;
-                    
                 case StageManager::ITEM:
                 {
-                    /*Coin* coin = new Coin();
-                    coin->pos = startOffset + tileSize * Vector2(x + width * i, y);
-                    coin->isActive = true;
-                    items.push_back(coin);
-                    break;*/
+
                     switch (key)
                     {
                     case 0:
